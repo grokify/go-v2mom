@@ -1,0 +1,657 @@
+{
+  "ir_version": "1.0",
+  "project": "go-v2mom",
+  "repository": "https://github.com/grokify/go-v2mom",
+  "generated_at": "2026-01-18T00:00:00Z",
+
+  "legend": {
+    "completed": {"emoji": "✅", "description": "Completed"},
+    "in_progress": {"emoji": "🚧", "description": "In Progress"},
+    "planned": {"emoji": "📋", "description": "Planned"},
+    "future": {"emoji": "💡", "description": "Under Consideration"}
+  },
+
+  "areas": [
+    {"id": "core", "name": "Core Library", "priority": 1},
+    {"id": "cli", "name": "CLI Tool", "priority": 2},
+    {"id": "rendering", "name": "Rendering", "priority": 3},
+    {"id": "integrations", "name": "Integrations", "priority": 4},
+    {"id": "improvement", "name": "Areas for Improvement", "priority": 5}
+  ],
+
+  "phases": [
+    {
+      "id": "phase1",
+      "name": "Phase 1: Core Foundation",
+      "status": "in_progress",
+      "order": 1,
+      "description": "Establish the core library with V2MOM types, JSON Schema, and basic Marp output"
+    },
+    {
+      "id": "phase2",
+      "name": "Phase 2: CLI Tool",
+      "status": "in_progress",
+      "order": 2,
+      "description": "Provide a command-line interface for validation and generation"
+    },
+    {
+      "id": "phase3",
+      "name": "Phase 3: Enhanced Marp Features",
+      "status": "planned",
+      "order": 3,
+      "description": "Add advanced slide features and themes"
+    },
+    {
+      "id": "phase4",
+      "name": "Phase 4: Additional Renderers",
+      "status": "planned",
+      "order": 4,
+      "description": "Support multiple output formats beyond Marp"
+    },
+    {
+      "id": "phase5",
+      "name": "Phase 5: External Integrations",
+      "status": "future",
+      "order": 5,
+      "description": "Enable sync with product management tools"
+    },
+    {
+      "id": "phase6",
+      "name": "Phase 6: Advanced Features",
+      "status": "future",
+      "order": 6,
+      "description": "Add enterprise and team features"
+    }
+  ],
+
+  "items": [
+    {
+      "id": "project-setup",
+      "title": "Project Setup",
+      "description": "Initialize Go module, directory structure, and tooling",
+      "status": "completed",
+      "area": "core",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "high",
+      "tasks": [
+        {"description": "Initialize Go module", "completed": true},
+        {"description": "Create directory structure per TRD", "completed": true},
+        {"description": "Add .gitignore for Go projects", "completed": true},
+        {"description": "Set up golangci-lint configuration", "completed": true}
+      ]
+    },
+    {
+      "id": "v2mom-types",
+      "title": "V2MOM Types",
+      "description": "Define core types in v2mom/v2mom.go",
+      "status": "completed",
+      "area": "core",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "high",
+      "tasks": [
+        {"description": "V2MOM struct with all components", "completed": true},
+        {"description": "Metadata struct for document metadata", "completed": true},
+        {"description": "Value struct for values", "completed": true},
+        {"description": "Method struct with nested Measures and Obstacles (MOM unit)", "completed": true},
+        {"description": "Obstacle struct", "completed": true},
+        {"description": "Measure struct (OKR Key Result aligned)", "completed": true},
+        {"description": "Project struct for roadmap items", "completed": true},
+        {"description": "JSON struct tags with proper omitempty", "completed": true},
+        {"description": "V2MOM.Validate() error", "completed": true},
+        {"description": "V2MOM.IsOKRAligned() bool", "completed": true},
+        {"description": "V2MOM.AllMeasures() []Measure", "completed": true},
+        {"description": "V2MOM.AllObstacles() []Obstacle", "completed": true}
+      ]
+    },
+    {
+      "id": "json-schema",
+      "title": "JSON Schema",
+      "description": "Create and embed JSON Schema for V2MOM validation",
+      "status": "in_progress",
+      "area": "core",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "high",
+      "tasks": [
+        {"description": "Create schema/v2mom.schema.json per TRD specification", "completed": true},
+        {"description": "Create schema/embed.go to embed schema using //go:embed", "completed": true},
+        {"description": "Add schema version constant", "completed": true},
+        {"description": "Implement schema.Validate(data []byte) error", "completed": false},
+        {"description": "Add tests with valid/invalid JSON documents", "completed": false}
+      ]
+    },
+    {
+      "id": "marp-renderer-basic",
+      "title": "Marp Renderer (Basic)",
+      "description": "Basic Marp markdown slide generation",
+      "status": "completed",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "high",
+      "tasks": [
+        {"description": "Create render/renderer.go with Renderer interface", "completed": true},
+        {"description": "Create render/options.go with rendering options", "completed": true},
+        {"description": "Title slide template", "completed": true},
+        {"description": "Vision slide template", "completed": true},
+        {"description": "Values slide template (ordered list)", "completed": true},
+        {"description": "Methods overview slide (table)", "completed": true},
+        {"description": "Obstacles slide", "completed": true},
+        {"description": "Measures summary slide", "completed": true},
+        {"description": "Create render/marp/themes/default.go with default theme CSS", "completed": false},
+        {"description": "Add unit tests for each slide type", "completed": false}
+      ]
+    },
+    {
+      "id": "example-data",
+      "title": "Example Data",
+      "description": "Create example V2MOM JSON files",
+      "status": "completed",
+      "area": "core",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Create examples/product-v2mom.json (full-featured example)", "completed": true},
+        {"description": "Create examples/minimal-v2mom.json (minimum valid)", "completed": true},
+        {"description": "Create examples/okr-aligned-v2mom.json (nested measures)", "completed": true},
+        {"description": "Generate example Marp output to examples/output/", "completed": true}
+      ]
+    },
+    {
+      "id": "cli-framework",
+      "title": "CLI Framework",
+      "description": "Set up Cobra-based CLI framework",
+      "status": "completed",
+      "area": "cli",
+      "type": "Added",
+      "phase": "phase2",
+      "priority": "high",
+      "tasks": [
+        {"description": "Add github.com/spf13/cobra dependency", "completed": true},
+        {"description": "Create cmd/v2mom/main.go entry point", "completed": true},
+        {"description": "Create cmd/v2mom/root.go with root command", "completed": true},
+        {"description": "Add version command", "completed": true}
+      ]
+    },
+    {
+      "id": "cli-commands",
+      "title": "CLI Commands",
+      "description": "Implement core CLI commands",
+      "status": "completed",
+      "area": "cli",
+      "type": "Added",
+      "phase": "phase2",
+      "priority": "high",
+      "tasks": [
+        {"description": "Implement v2mom init command", "completed": true},
+        {"description": "Support --name flag for V2MOM name", "completed": true},
+        {"description": "Support --output flag for file path", "completed": true},
+        {"description": "Support --structure flag for template structure", "completed": true},
+        {"description": "Implement v2mom validate command", "completed": true},
+        {"description": "Read and parse JSON file", "completed": true},
+        {"description": "Validate against embedded schema", "completed": false},
+        {"description": "Output validation errors with line numbers", "completed": false},
+        {"description": "Support --schema flag for custom schema", "completed": false},
+        {"description": "Implement v2mom generate marp command", "completed": true},
+        {"description": "Support --output flag", "completed": true},
+        {"description": "Support --theme flag (default, corporate, minimal)", "completed": true}
+      ]
+    },
+    {
+      "id": "cli-polish",
+      "title": "CLI Polish",
+      "description": "Add CLI UX improvements",
+      "status": "planned",
+      "area": "cli",
+      "type": "Changed",
+      "phase": "phase2",
+      "priority": "low",
+      "tasks": [
+        {"description": "Add colorized output for terminal", "completed": false},
+        {"description": "Add --quiet flag for CI usage", "completed": false},
+        {"description": "Add --verbose flag for debugging", "completed": false},
+        {"description": "Implement proper exit codes per TRD", "completed": false}
+      ]
+    },
+    {
+      "id": "method-detail-slides",
+      "title": "Method Detail Slides",
+      "description": "Generate per-method detail slides with nested measures and obstacles",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase3",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Method description and status", "completed": false},
+        {"description": "Nested measures with progress indicators", "completed": false},
+        {"description": "Method-specific obstacles", "completed": false},
+        {"description": "Timeline visualization", "completed": false},
+        {"description": "Add --method-slides flag to enable/disable", "completed": false}
+      ]
+    },
+    {
+      "id": "roadmap-visualization",
+      "title": "Roadmap Visualization",
+      "description": "Create roadmap slide with timeline",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase3",
+      "priority": "medium",
+      "tasks": [
+        {"description": "ASCII timeline option", "completed": false},
+        {"description": "Mermaid Gantt diagram option", "completed": false},
+        {"description": "Group projects by quarter", "completed": false},
+        {"description": "Show dependencies", "completed": false}
+      ]
+    },
+    {
+      "id": "additional-themes",
+      "title": "Additional Themes",
+      "description": "Implement corporate and minimal themes",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase3",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement corporate theme with professional color scheme", "completed": false},
+        {"description": "Add company logo placeholder support", "completed": false},
+        {"description": "Implement minimal theme with clean design", "completed": false},
+        {"description": "High contrast for readability", "completed": false},
+        {"description": "Support custom theme via --theme-file flag", "completed": false}
+      ]
+    },
+    {
+      "id": "progress-dashboard",
+      "title": "Progress Dashboard",
+      "description": "Add measures dashboard slide with visual progress",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase3",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Add measures dashboard slide", "completed": false},
+        {"description": "Visual progress bars (ASCII or emoji)", "completed": false},
+        {"description": "Status color coding", "completed": false},
+        {"description": "OKR scoring display (0.0-1.0)", "completed": false}
+      ]
+    },
+    {
+      "id": "pandoc-renderer",
+      "title": "Pandoc Renderer",
+      "description": "Generate Pandoc-compatible markdown for PDF/DOCX",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase4",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Implement render/pandoc/pandoc.go", "completed": false},
+        {"description": "Generate Pandoc-compatible markdown", "completed": false},
+        {"description": "Support metadata for PDF generation", "completed": false},
+        {"description": "Add CLI command: v2mom generate pandoc", "completed": false},
+        {"description": "Document Pandoc command for PDF/DOCX conversion", "completed": false}
+      ]
+    },
+    {
+      "id": "confluence-renderer",
+      "title": "Confluence Renderer",
+      "description": "Generate Confluence Storage Format (XHTML)",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase4",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Implement render/confluence/confluence.go", "completed": false},
+        {"description": "Generate Confluence Storage Format (XHTML)", "completed": false},
+        {"description": "Support Status macro for progress", "completed": false},
+        {"description": "Support Panel macro for sections", "completed": false},
+        {"description": "Support Table macro for data", "completed": false},
+        {"description": "Add CLI command: v2mom generate confluence", "completed": false}
+      ]
+    },
+    {
+      "id": "html-renderer",
+      "title": "HTML Renderer",
+      "description": "Standalone HTML with embedded CSS",
+      "status": "planned",
+      "area": "rendering",
+      "type": "Added",
+      "phase": "phase4",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement render/html/html.go", "completed": false},
+        {"description": "Standalone HTML with embedded CSS", "completed": false},
+        {"description": "Interactive elements (collapsible sections)", "completed": false},
+        {"description": "Print-friendly stylesheet", "completed": false}
+      ]
+    },
+    {
+      "id": "adapter-interface",
+      "title": "Adapter Interface",
+      "description": "Define adapter interface for external integrations",
+      "status": "future",
+      "area": "integrations",
+      "type": "Added",
+      "phase": "phase5",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Define Adapter interface in adapter/adapter.go", "completed": false},
+        {"description": "Create AdapterOptions for common configuration", "completed": false},
+        {"description": "Add authentication helpers for OAuth2/API keys", "completed": false}
+      ]
+    },
+    {
+      "id": "aha-adapter",
+      "title": "Aha! Adapter",
+      "description": "Sync V2MOM with Aha! product management tool",
+      "status": "future",
+      "area": "integrations",
+      "type": "Added",
+      "phase": "phase5",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement adapter/aha/aha.go", "completed": false},
+        {"description": "Map V2MOM Methods to Aha! Goals", "completed": false},
+        {"description": "Map V2MOM Projects to Aha! Features", "completed": false},
+        {"description": "Support push (V2MOM to Aha!)", "completed": false},
+        {"description": "Support pull (Aha! to V2MOM)", "completed": false},
+        {"description": "Add CLI command: v2mom sync aha", "completed": false}
+      ]
+    },
+    {
+      "id": "productboard-adapter",
+      "title": "ProductBoard Adapter",
+      "description": "Sync V2MOM with ProductBoard",
+      "status": "future",
+      "area": "integrations",
+      "type": "Added",
+      "phase": "phase5",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement adapter/productboard/productboard.go", "completed": false},
+        {"description": "Map V2MOM Methods to ProductBoard Objectives", "completed": false},
+        {"description": "Map V2MOM Measures to ProductBoard Key Results", "completed": false},
+        {"description": "Support push/pull operations", "completed": false},
+        {"description": "Add CLI command: v2mom sync productboard", "completed": false}
+      ]
+    },
+    {
+      "id": "jira-adapter",
+      "title": "Jira Adapter",
+      "description": "Sync V2MOM with Jira",
+      "status": "future",
+      "area": "integrations",
+      "type": "Added",
+      "phase": "phase5",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement adapter/jira/jira.go", "completed": false},
+        {"description": "Map V2MOM Methods to Jira Epics", "completed": false},
+        {"description": "Map V2MOM Projects to Jira Initiatives", "completed": false},
+        {"description": "Link measures to Jira custom fields", "completed": false},
+        {"description": "Add CLI command: v2mom sync jira", "completed": false}
+      ]
+    },
+    {
+      "id": "linear-adapter",
+      "title": "Linear Adapter",
+      "description": "Sync V2MOM with Linear",
+      "status": "future",
+      "area": "integrations",
+      "type": "Added",
+      "phase": "phase5",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement adapter/linear/linear.go", "completed": false},
+        {"description": "Map V2MOM Methods to Linear Projects", "completed": false},
+        {"description": "Map V2MOM Measures to Linear Milestones", "completed": false},
+        {"description": "Support GraphQL API", "completed": false},
+        {"description": "Add CLI command: v2mom sync linear", "completed": false}
+      ]
+    },
+    {
+      "id": "v2mom-cascading",
+      "title": "V2MOM Cascading",
+      "description": "Support parent-child V2MOM relationships",
+      "status": "future",
+      "area": "core",
+      "type": "Added",
+      "phase": "phase6",
+      "priority": "low",
+      "tasks": [
+        {"description": "Support parent-child V2MOM relationships", "completed": false},
+        {"description": "Validate alignment between parent/child V2MOMs", "completed": false},
+        {"description": "Generate cascade visualization", "completed": false},
+        {"description": "Aggregate measures across hierarchy", "completed": false}
+      ]
+    },
+    {
+      "id": "diff-history",
+      "title": "Diff and History",
+      "description": "Compare V2MOM versions and track changes",
+      "status": "future",
+      "area": "cli",
+      "type": "Added",
+      "phase": "phase6",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement v2mom diff FILE1 FILE2", "completed": false},
+        {"description": "Show changes between V2MOM versions", "completed": false},
+        {"description": "Highlight added/removed/changed items", "completed": false},
+        {"description": "Generate change summary", "completed": false}
+      ]
+    },
+    {
+      "id": "reporting",
+      "title": "Reporting",
+      "description": "Generate progress reports and OKR scores",
+      "status": "future",
+      "area": "cli",
+      "type": "Added",
+      "phase": "phase6",
+      "priority": "low",
+      "tasks": [
+        {"description": "Generate progress report across all measures", "completed": false},
+        {"description": "Calculate OKR scores", "completed": false},
+        {"description": "Identify at-risk methods", "completed": false},
+        {"description": "Export to CSV/Excel", "completed": false}
+      ]
+    },
+    {
+      "id": "watch-mode",
+      "title": "Watch Mode",
+      "description": "Auto-regenerate on file changes",
+      "status": "future",
+      "area": "cli",
+      "type": "Added",
+      "phase": "phase6",
+      "priority": "low",
+      "tasks": [
+        {"description": "Implement v2mom generate --watch", "completed": false},
+        {"description": "Auto-regenerate on file changes", "completed": false},
+        {"description": "Support live reload for presentations", "completed": false}
+      ]
+    },
+    {
+      "id": "test-suite",
+      "title": "Add comprehensive test suite",
+      "description": "Unit and integration tests for all packages",
+      "status": "planned",
+      "area": "improvement",
+      "type": "Changed",
+      "phase": "phase1",
+      "priority": "high",
+      "tasks": [
+        {"description": "Unit tests for v2mom/v2mom.go types and methods", "completed": false},
+        {"description": "Unit tests for v2mom/validation.go", "completed": false},
+        {"description": "Unit tests for v2mom/terminology.go", "completed": false},
+        {"description": "Unit tests for render/marp/marp.go templates", "completed": false},
+        {"description": "Integration tests for CLI commands", "completed": false},
+        {"description": "Test coverage reporting", "completed": false}
+      ]
+    },
+    {
+      "id": "json-schema-validation",
+      "title": "Implement JSON Schema validation",
+      "description": "Use embedded JSON Schema for actual validation instead of manual checks",
+      "status": "planned",
+      "area": "improvement",
+      "type": "Changed",
+      "phase": "phase1",
+      "priority": "high",
+      "tasks": [
+        {"description": "Add JSON Schema validation library dependency", "completed": false},
+        {"description": "Implement schema.Validate() using embedded schema", "completed": false},
+        {"description": "Integrate schema validation into CLI validate command", "completed": false},
+        {"description": "Return schema validation errors with paths", "completed": false}
+      ]
+    },
+    {
+      "id": "complete-themes",
+      "title": "Complete theme implementations",
+      "description": "Fully implement corporate and minimal themes",
+      "status": "planned",
+      "area": "improvement",
+      "type": "Changed",
+      "phase": "phase3",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Define theme CSS variables for corporate theme", "completed": false},
+        {"description": "Define theme CSS variables for minimal theme", "completed": false},
+        {"description": "Add theme-specific slide layouts", "completed": false},
+        {"description": "Test themes with all example V2MOMs", "completed": false}
+      ]
+    },
+    {
+      "id": "dev-docs",
+      "title": "Add developer documentation",
+      "description": "CONTRIBUTING.md and development setup guide",
+      "status": "planned",
+      "area": "improvement",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "medium",
+      "tasks": [
+        {"description": "Create CONTRIBUTING.md with contribution guidelines", "completed": false},
+        {"description": "Add development setup instructions to README", "completed": false},
+        {"description": "Document testing procedures", "completed": false},
+        {"description": "Add code style guidelines", "completed": false}
+      ]
+    },
+    {
+      "id": "cli-formatting",
+      "title": "Add CLI color/formatting",
+      "description": "Improve CLI UX with colors and formatting",
+      "status": "planned",
+      "area": "improvement",
+      "type": "Changed",
+      "phase": "phase2",
+      "priority": "low",
+      "tasks": [
+        {"description": "Add color library (fatih/color or similar)", "completed": false},
+        {"description": "Colorize validation errors (red) and warnings (yellow)", "completed": false},
+        {"description": "Colorize success messages (green)", "completed": false},
+        {"description": "Add --no-color flag for CI environments", "completed": false}
+      ]
+    },
+    {
+      "id": "changelog",
+      "title": "Add changelog",
+      "description": "Maintain version history with structured changelog",
+      "status": "planned",
+      "area": "improvement",
+      "type": "Added",
+      "phase": "phase1",
+      "priority": "low",
+      "tasks": [
+        {"description": "Create CHANGELOG.json using structured-changelog format", "completed": false},
+        {"description": "Generate CHANGELOG.md from JSON", "completed": false},
+        {"description": "Document release process", "completed": false}
+      ]
+    }
+  ],
+
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "order": 1,
+      "content": [
+        {"type": "text", "value": "This document outlines the implementation plan for go-v2mom, a Go library and CLI tool for managing V2MOM strategic planning documents with OKR alignment support."}
+      ]
+    },
+    {
+      "id": "priority-matrix",
+      "title": "Implementation Priority Matrix",
+      "order": 50,
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Item", "Impact", "Effort", "Priority"],
+          "rows": [
+            ["Core V2MOM types", "High", "Low", "P0"],
+            ["JSON Schema", "High", "Medium", "P0"],
+            ["Basic Marp renderer", "High", "Medium", "P0"],
+            ["CLI validate command", "High", "Low", "P0"],
+            ["CLI generate command", "High", "Low", "P0"],
+            ["Test suite", "High", "Medium", "P0"],
+            ["Example data", "Medium", "Low", "P1"],
+            ["Method detail slides", "Medium", "Medium", "P1"],
+            ["Additional themes", "Low", "Low", "P2"],
+            ["Roadmap visualization", "Medium", "High", "P2"],
+            ["Pandoc renderer", "Medium", "Medium", "P2"],
+            ["Confluence renderer", "Medium", "High", "P2"],
+            ["Aha! adapter", "Medium", "High", "P3"],
+            ["ProductBoard adapter", "Medium", "High", "P3"],
+            ["Jira adapter", "Medium", "High", "P3"],
+            ["V2MOM cascading", "Low", "High", "P3"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dependencies",
+      "title": "Dependencies",
+      "order": 60,
+      "content": [
+        {"type": "code", "language": "", "value": "Phase 1 (Core) ────► Phase 2 (CLI) ────► Phase 3 (Enhanced Marp)\n                                                    │\n                                                    ▼\n                                         Phase 4 (Renderers)\n                                                    │\n                                                    ▼\n                                         Phase 5 (Integrations)\n                                                    │\n                                                    ▼\n                                         Phase 6 (Advanced)"}
+      ]
+    },
+    {
+      "id": "success-criteria",
+      "title": "Success Criteria per Phase",
+      "order": 70,
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Phase", "Success Criteria"],
+          "rows": [
+            ["Phase 1", "Can parse V2MOM JSON and generate basic Marp slides"],
+            ["Phase 2", "CLI tool usable for validation and generation"],
+            ["Phase 3", "Executive-ready slide decks with all V2MOM components"],
+            ["Phase 4", "Multiple output formats (Marp, Pandoc, Confluence)"],
+            ["Phase 5", "Two-way sync with at least one PM tool"],
+            ["Phase 6", "Full enterprise feature set"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contributing",
+      "title": "Contributing",
+      "order": 99,
+      "content": [
+        {"type": "text", "value": "Contributions welcome! Priority areas:"},
+        {"type": "list", "items": ["Additional output format renderers", "Product management tool adapters", "Theme designs", "Documentation and examples", "Test coverage"]}
+      ]
+    }
+  ]
+}
