@@ -1,0 +1,73 @@
+{
+  "ir_version": "1.0",
+  "project": "go-v2mom",
+  "repository": "https://github.com/grokify/go-v2mom",
+  "generated_at": "2026-01-18T00:00:00Z",
+  "unreleased": {},
+  "releases": [
+    {
+      "version": "0.1.0",
+      "date": "2026-01-18",
+      "highlights": [
+        {
+          "description": "Initial release of go-v2mom, a Go library and CLI for V2MOM strategic planning with OKR alignment"
+        }
+      ],
+      "added": [
+        {
+          "description": "Core V2MOM types: `V2MOM`, `Metadata`, `Value`, `Method`, `Measure`, `Obstacle`, `Project`"
+        },
+        {
+          "description": "Structure modes: flat (traditional V2MOM), nested (OKR-aligned), and hybrid"
+        },
+        {
+          "description": "Terminology support: v2mom (Methods/Measures/Obstacles), okr (Objectives/Key Results/Risks), hybrid"
+        },
+        {
+          "description": "Helper methods: `AllMeasures()`, `AllObstacles()`, `InferStructure()`, `GetStructure()`, `GetTerminology()`"
+        },
+        {
+          "description": "Validation with structure enforcement, `ValidationOptions`, and path-aware error reporting"
+        },
+        {
+          "description": "JSON Schema (Draft-07) for V2MOM documents with embedded schema via `//go:embed`"
+        },
+        {
+          "description": "Marp markdown renderer with theme support (default, corporate, minimal)"
+        },
+        {
+          "description": "Marp slides: title, vision, values, methods overview, obstacles, measures, progress dashboard"
+        },
+        {
+          "description": "CLI command `v2mom init` - generate template V2MOM JSON with `--name`, `--output`, `--structure` flags"
+        },
+        {
+          "description": "CLI command `v2mom validate` - validate V2MOM JSON with structure detection and error/warning reporting"
+        },
+        {
+          "description": "CLI command `v2mom generate marp` - generate Marp slides with `--output`, `--theme`, `--terminology` flags"
+        },
+        {
+          "description": "Example V2MOM documents: `product-v2mom.json`, `minimal-v2mom.json`, `agentplexus-v2mom.json`"
+        },
+        {
+          "description": "CI/CD workflows: multi-platform testing, golangci-lint, CodeQL security scanning"
+        }
+      ],
+      "documentation": [
+        {
+          "description": "README with quick start guide, CLI reference, and library usage examples"
+        },
+        {
+          "description": "Product Requirements Document (PRD.md) with goals, user personas, and functional requirements"
+        },
+        {
+          "description": "Technical Requirements Document (TRD.md) with architecture, JSON Schema, and implementation details"
+        },
+        {
+          "description": "Roadmap (ROADMAP.md) with phased implementation plan"
+        }
+      ]
+    }
+  ]
+}
