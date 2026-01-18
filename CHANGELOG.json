@@ -2,11 +2,13 @@
   "ir_version": "1.0",
   "project": "go-v2mom",
   "repository": "https://github.com/grokify/go-v2mom",
+  "versioning": "semver",
+  "commit_convention": "conventional",
   "generated_at": "2026-01-18T00:00:00Z",
   "unreleased": {},
   "releases": [
     {
-      "version": "0.1.0",
+      "version": "v0.1.0",
       "date": "2026-01-18",
       "highlights": [
         {
@@ -15,57 +17,74 @@
       ],
       "added": [
         {
-          "description": "Core V2MOM types: `V2MOM`, `Metadata`, `Value`, `Method`, `Measure`, `Obstacle`, `Project`"
+          "description": "Core V2MOM types: `V2MOM`, `Metadata`, `Value`, `Method`, `Measure`, `Obstacle`, `Project`",
+          "commit": "f14907c"
         },
         {
-          "description": "Structure modes: flat (traditional V2MOM), nested (OKR-aligned), and hybrid"
+          "description": "Structure modes: flat (traditional V2MOM), nested (OKR-aligned), and hybrid",
+          "commit": "f14907c"
         },
         {
-          "description": "Terminology support: v2mom (Methods/Measures/Obstacles), okr (Objectives/Key Results/Risks), hybrid"
+          "description": "Terminology support: v2mom (Methods/Measures/Obstacles), okr (Objectives/Key Results/Risks), hybrid",
+          "commit": "f14907c"
         },
         {
-          "description": "Helper methods: `AllMeasures()`, `AllObstacles()`, `InferStructure()`, `GetStructure()`, `GetTerminology()`"
+          "description": "Helper methods: `AllMeasures()`, `AllObstacles()`, `InferStructure()`, `GetStructure()`, `GetTerminology()`",
+          "commit": "f14907c"
         },
         {
-          "description": "Validation with structure enforcement, `ValidationOptions`, and path-aware error reporting"
+          "description": "Validation with structure enforcement, `ValidationOptions`, and path-aware error reporting",
+          "commit": "f14907c"
         },
         {
-          "description": "JSON Schema (Draft-07) for V2MOM documents with embedded schema via `//go:embed`"
+          "description": "JSON Schema (Draft-07) for V2MOM documents with embedded schema via `//go:embed`",
+          "commit": "ca6b3e7"
         },
         {
-          "description": "Marp markdown renderer with theme support (default, corporate, minimal)"
+          "description": "Marp markdown renderer with theme support (default, corporate, minimal)",
+          "commit": "46f9dd2"
         },
         {
-          "description": "Marp slides: title, vision, values, methods overview, obstacles, measures, progress dashboard"
+          "description": "Marp slides: title, vision, values, methods overview, obstacles, measures, progress dashboard",
+          "commit": "46f9dd2"
         },
         {
-          "description": "CLI command `v2mom init` - generate template V2MOM JSON with `--name`, `--output`, `--structure` flags"
+          "description": "CLI command `v2mom init` - generate template V2MOM JSON with `--name`, `--output`, `--structure` flags",
+          "commit": "180f465"
         },
         {
-          "description": "CLI command `v2mom validate` - validate V2MOM JSON with structure detection and error/warning reporting"
+          "description": "CLI command `v2mom validate` - validate V2MOM JSON with structure detection and error/warning reporting",
+          "commit": "180f465"
         },
         {
-          "description": "CLI command `v2mom generate marp` - generate Marp slides with `--output`, `--theme`, `--terminology` flags"
+          "description": "CLI command `v2mom generate marp` - generate Marp slides with `--output`, `--theme`, `--terminology` flags",
+          "commit": "180f465"
         },
         {
-          "description": "Example V2MOM documents: `product-v2mom.json`, `minimal-v2mom.json`, `agentplexus-v2mom.json`"
+          "description": "Example V2MOM documents: `product-v2mom.json`, `minimal-v2mom.json`, `agentplexus-v2mom.json`",
+          "commit": "b2b0bb3"
         },
         {
-          "description": "CI/CD workflows: multi-platform testing, golangci-lint, CodeQL security scanning"
+          "description": "CI/CD workflows: multi-platform testing, golangci-lint, CodeQL security scanning",
+          "commit": "f131380"
         }
       ],
       "documentation": [
         {
-          "description": "README with quick start guide, CLI reference, and library usage examples"
+          "description": "README with quick start guide, CLI reference, and library usage examples",
+          "commit": "52a5383"
         },
         {
-          "description": "Product Requirements Document (PRD.md) with goals, user personas, and functional requirements"
+          "description": "Product Requirements Document (PRD.md) with goals, user personas, and functional requirements",
+          "commit": "52a5383"
         },
         {
-          "description": "Technical Requirements Document (TRD.md) with architecture, JSON Schema, and implementation details"
+          "description": "Technical Requirements Document (TRD.md) with architecture, JSON Schema, and implementation details",
+          "commit": "52a5383"
         },
         {
-          "description": "Roadmap (ROADMAP.md) with phased implementation plan"
+          "description": "Roadmap (ROADMAP.md) with phased implementation plan",
+          "commit": "bc3c8ce"
         }
       ]
     }
