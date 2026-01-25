@@ -1,7 +1,5 @@
 name: lint
 on: [push, pull_request]
-permissions:
-  contents: read
 jobs:
   lint:
     strategy:
@@ -15,4 +13,4 @@ jobs:
       uses: golangci/golangci-lint-action@v9
       with:
         version: latest
-        args: --timeout 3m --verbose
+        args: --timeout 3m --max-same-issues 0 --max-issues-per-linter 0 --verbose
