@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/grokify/go-v2mom/schema/v2mom.schema.json",
+  "$id": "https://github.com/grokify/structured-goals/schema/v2mom.schema.json",
   "title": "V2MOM",
   "description": "V2MOM strategic planning document with optional OKR alignment",
   "type": "object",

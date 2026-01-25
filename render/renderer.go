@@ -3,7 +3,7 @@
 package render
 
 import (
-	"github.com/grokify/go-v2mom/v2mom"
+	"github.com/grokify/structured-goals/v2mom"
 )
 
 // Renderer defines the interface for output format renderers.

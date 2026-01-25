@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/go-v2mom/v2mom"
+	"github.com/grokify/structured-goals/v2mom"
 	"github.com/spf13/cobra"
 )
 

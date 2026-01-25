@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/grokify/go-v2mom/render"
-	"github.com/grokify/go-v2mom/render/marp"
-	"github.com/grokify/go-v2mom/v2mom"
+	"github.com/grokify/structured-goals/render"
+	"github.com/grokify/structured-goals/render/marp"
+	"github.com/grokify/structured-goals/v2mom"
 	"github.com/spf13/cobra"
 )
 

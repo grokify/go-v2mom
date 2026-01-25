@@ -9,7 +9,7 @@ import (
 const SchemaVersion = "1.0.0"
 
 // SchemaID is the canonical ID for the V2MOM JSON Schema.
-const SchemaID = "https://github.com/grokify/go-v2mom/schema/v2mom.schema.json"
+const SchemaID = "https://github.com/grokify/structured-goals/schema/v2mom.schema.json"
 
 //go:embed v2mom.schema.json
 var schemaJSON []byte
