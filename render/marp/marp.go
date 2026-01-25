@@ -6,11 +6,12 @@ package marp
 import (
 	"bytes"
 	"fmt"
-	"strings"
 	"text/template"
 
-	"github.com/grokify/go-v2mom/render"
-	"github.com/grokify/go-v2mom/v2mom"
+	sdmarp "github.com/grokify/structureddocs/marp"
+
+	"github.com/grokify/structured-goals/render"
+	"github.com/grokify/structured-goals/v2mom"
 )
 
 // Renderer implements the render.Renderer interface for Marp output.
@@ -45,7 +46,7 @@ func (r *Renderer) Render(v *v2mom.V2MOM, opts *render.Options) ([]byte, error) 
 		Options:     opts,
 		Term:        term,
 		Structure:   structure,
-		Theme:       getTheme(opts.Theme),
+		Theme:       sdmarp.GetTheme(opts.Theme),
 		HasProjects: len(v.Projects) > 0 && opts.IncludeProjects,
 	}
 
@@ -134,7 +135,7 @@ type templateData struct {
 	Options     *render.Options
 	Term        v2mom.Terminology
 	Structure   string
-	Theme       themeConfig
+	Theme       sdmarp.ThemeConfig
 	HasProjects bool
 }
 
@@ -151,86 +152,10 @@ type measuresDashboardData struct {
 	AllMeasures []v2mom.Measure
 }
 
-// themeConfig holds theme-specific configuration.
-type themeConfig struct {
-	Name            string
-	VisionBgColor   string
-	VisionTextColor string
-	AccentColor     string
-}
+// funcMap uses the shared CommonFuncMap from structureddocs.
+var funcMap = sdmarp.CommonFuncMap
 
-func getTheme(name string) themeConfig {
-	switch name {
-	case "corporate":
-		return themeConfig{
-			Name:            "default",
-			VisionBgColor:   "#1a365d",
-			VisionTextColor: "#ffffff",
-			AccentColor:     "#2b6cb0",
-		}
-	case "minimal":
-		return themeConfig{
-			Name:            "default",
-			VisionBgColor:   "#2d3748",
-			VisionTextColor: "#ffffff",
-			AccentColor:     "#4a5568",
-		}
-	default: // "default"
-		return themeConfig{
-			Name:            "default",
-			VisionBgColor:   "#667eea",
-			VisionTextColor: "#ffffff",
-			AccentColor:     "#764ba2",
-		}
-	}
-}
-
-// Template functions
-var funcMap = template.FuncMap{
-	"add": func(a, b int) int { return a + b },
-	"statusEmoji": func(status string) string {
-		switch status {
-		case "Completed", "Achieved":
-			return "[DONE]"
-		case "In Progress":
-			return "[IN PROGRESS]"
-		case "At Risk", "Behind":
-			return "[AT RISK]"
-		case "Planning":
-			return "[PLANNING]"
-		case "Not Started", "Proposed":
-			return "[NOT STARTED]"
-		case "Cancelled", "Missed":
-			return "[CANCELLED]"
-		default:
-			return ""
-		}
-	},
-	"progressBar": func(progress float64) string {
-		filled := int(progress * 10)
-		empty := 10 - filled
-		return strings.Repeat("#", filled) + strings.Repeat("-", empty)
-	},
-	"progressPercent": func(progress float64) string {
-		return fmt.Sprintf("%.0f%%", progress*100)
-	},
-	"priorityLabel": func(priority string) string {
-		switch priority {
-		case "P0":
-			return "P0 (Critical)"
-		case "P1":
-			return "P1 (High)"
-		case "P2":
-			return "P2 (Medium)"
-		case "P3":
-			return "P3 (Low)"
-		default:
-			return priority
-		}
-	},
-}
-
-// Templates
+// Templates - updated to use structureddocs ThemeConfig field names
 var frontMatterTmpl = template.Must(template.New("frontMatter").Parse(`---
 marp: true
 theme: {{.Theme.Name}}
@@ -252,11 +177,11 @@ style: |
     font-size: 2.5em;
   }
   section.vision {
-    background: linear-gradient(135deg, {{.Theme.VisionBgColor}} 0%, {{.Theme.AccentColor}} 100%);
-    color: {{.Theme.VisionTextColor}};
+    background: linear-gradient(135deg, {{.Theme.PrimaryBgColor}} 0%, {{.Theme.AccentColor}} 100%);
+    color: {{.Theme.PrimaryTextColor}};
   }
   section.vision h2 {
-    color: {{.Theme.VisionTextColor}};
+    color: {{.Theme.PrimaryTextColor}};
   }
   table {
     font-size: 0.85em;
@@ -265,10 +190,10 @@ style: |
   th {
     background: #f7fafc;
   }
-  .status-done { color: #38a169; }
-  .status-progress { color: #3182ce; }
-  .status-risk { color: #e53e3e; }
-  .status-planning { color: #805ad5; }
+  .status-done { color: {{.Theme.SuccessColor}}; }
+  .status-progress { color: {{.Theme.AccentColor}}; }
+  .status-risk { color: {{.Theme.DangerColor}}; }
+  .status-planning { color: {{.Theme.WarningColor}}; }
   blockquote {
     font-size: 1.3em;
     font-style: italic;
