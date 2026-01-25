@@ -1,37 +1,8 @@
-# Binaries
-/v2mom
-!v2mom/
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary
-*.test
-
-# Output of the go coverage tool
-*.out
-coverage.html
-
-# Go workspace file
-go.work
-
-# IDE
-.idea/
-.vscode/
-.claude/settings.local.json
-*.swp
-*.swo
-
-# OS files
 .DS_Store
-Thumbs.db
-
-# Build output
-dist/
-bin/
-
-# Temporary files
-*.tmp
-/tmp/
+.env
+_*
+*.tar
+coverage.txt
+debug.test
+main
+main.zip
